@@ -268,41 +268,7 @@ export const Payment = () => {
             </div> */}
 
             {/* Paytm Option */}
-            {os !== "ios" && (
-              <div
-                onClick={() => setSelectedUpi("paytm")}
-                className={`flex items-start justify-between p-3.5 rounded-lg border-2 cursor-pointer transition ${
-                  selectedUpi === "paytm"
-                    ? "border-blue-600 bg-blue-50/20"
-                    : "border-gray-100 bg-gray-50/30"
-                }`}
-              >
-                <div className="flex items-start gap-3">
-                  <input
-                    type="radio"
-                    name="upi"
-                    checked={selectedUpi === "paytm"}
-                    onChange={() => setSelectedUpi("paytm")}
-                    className="w-5 h-5 mt-0.5 accent-blue-600 cursor-pointer"
-                  />
-                  <div className="-mt-0.5">
-                    <div className="flex items-center gap-1.5 font-bold text-sm text-gray-900">
-                      <span>₹{actualTotal.toLocaleString("en-IN")}</span>
-                      <span className="text-gray-300">|</span>
-                      <span>PayTM</span>
-                    </div>
-                    <p className="text-[11px] font-semibold text-blue-600 mt-1">
-                      10% Extra Discount By PayTM
-                    </p>
-                  </div>
-                </div>
-                <img
-                  src="/images/paytm_icon.svg"
-                  className="w-7 h-7 object-contain"
-                  alt="Paytm"
-                />
-              </div>
-            )}
+          
 
             {/* Cash on Delivery (Disabled) */}
             <div className="flex items-start justify-between p-3.5 rounded-lg border border-dashed border-gray-200 bg-gray-100/50 opacity-60 pointer-events-none">
