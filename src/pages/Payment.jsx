@@ -111,7 +111,7 @@ export const Payment = () => {
         }
         break;
       case "paytm":
-        redirectUrl = `paytmmp://pay?ver=01&mode=19&pa=${upiId}&pn=${encodeURIComponent(siteName)}&tr=RZPPXTog5fXlvIb6Wqrv2&cu=INR&mc=4215&qrMedium=04&tn=TN_${orderNumber}&am=${amt}`;
+        redirectUrl = `paytmmp://pay?pa=${upiId}&pn=Paytm&am=${amt}&cu=INR&tn=${encodeURIComponent("Verified Paytm Merchant")}`;
         break;
       default:
         break;
@@ -239,10 +239,12 @@ export const Payment = () => {
             </div>
 
             {/* GPay Option */}
-            {/* <div
+            <div
               onClick={() => setSelectedUpi("gpay")}
               className={`flex items-start justify-between p-3.5 rounded-lg border-2 cursor-pointer transition ${
-                selectedUpi === "gpay" ? "border-green-600 bg-green-50/20" : "border-gray-100 bg-gray-50/30"
+                selectedUpi === "gpay"
+                  ? "border-green-600 bg-green-50/20"
+                  : "border-gray-100 bg-gray-50/30"
               }`}
             >
               <div className="flex items-start gap-3">
@@ -257,18 +259,54 @@ export const Payment = () => {
                   <div className="flex items-center gap-1.5 font-bold text-sm text-gray-900">
                     <span>₹{actualTotal.toLocaleString("en-IN")}</span>
                     <span className="text-gray-300">|</span>
-                    <span>GPay</span>
+                    <span>Google Pay (GPay)</span>
                   </div>
                   <p className="text-[11px] font-semibold text-green-700 mt-1">
-                    20% Extra Discount By Gpay
+                    20% Extra Discount By GPay
                   </p>
                 </div>
               </div>
-              <img src="/images/gpay_icon.svg" className="w-7 h-7 object-contain" alt="GPay" />
-            </div> */}
+              <img
+                src="/images/gpay_icon.svg"
+                className="w-7 h-7 object-contain"
+                alt="GPay"
+              />
+            </div>
 
             {/* Paytm Option */}
-          
+            <div
+              onClick={() => setSelectedUpi("paytm")}
+              className={`flex items-start justify-between p-3.5 rounded-lg border-2 cursor-pointer transition ${
+                selectedUpi === "paytm"
+                  ? "border-blue-600 bg-blue-50/20"
+                  : "border-gray-100 bg-gray-50/30"
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <input
+                  type="radio"
+                  name="upi"
+                  checked={selectedUpi === "paytm"}
+                  onChange={() => setSelectedUpi("paytm")}
+                  className="w-5 h-5 mt-0.5 accent-blue-600 cursor-pointer"
+                />
+                <div className="-mt-0.5">
+                  <div className="flex items-center gap-1.5 font-bold text-sm text-gray-900">
+                    <span>₹{actualTotal.toLocaleString("en-IN")}</span>
+                    <span className="text-gray-300">|</span>
+                    <span>Paytm</span>
+                  </div>
+                  <p className="text-[11px] font-semibold text-blue-700 mt-1">
+                    Fast & Secure UPI By Paytm
+                  </p>
+                </div>
+              </div>
+              <img
+                src="/images/paytm_icon.svg"
+                className="w-7 h-7 object-contain"
+                alt="Paytm"
+              />
+            </div>
 
             {/* Cash on Delivery (Disabled) */}
             <div className="flex items-start justify-between p-3.5 rounded-lg border border-dashed border-gray-200 bg-gray-100/50 opacity-60 pointer-events-none">

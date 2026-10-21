@@ -541,7 +541,7 @@
 .relative>label {
   position: absolute;
   left: 12px;
-  top: 16px;
+  top: 14px;
   color: #6b7280;
   font-size: 14px;
   transition: all 0.2s ease;
@@ -556,6 +556,11 @@
   left: 8px;
   font-size: 12px;
   color: #2874f0;
+}
+
+.relative>input::placeholder {
+  color: transparent !important;
+  opacity: 0 !important;
 }
 
 input:focus::placeholder,

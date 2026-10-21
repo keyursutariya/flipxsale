@@ -229,7 +229,6 @@ export const AddEditAddress = () => {
             }}
             onFocus={() => setFocusedField("fullName")}
             onBlur={() => setFocusedField(null)}
-            placeholder="Full Name (Required)*"
             className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
               errors.fullName ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
             }`}
@@ -257,7 +256,6 @@ export const AddEditAddress = () => {
             }}
             onFocus={() => setFocusedField("phone")}
             onBlur={() => setFocusedField(null)}
-            placeholder="Phone number (Required)*"
             className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
               errors.phone ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
             }`}
@@ -293,7 +291,6 @@ export const AddEditAddress = () => {
               onChange={(e) => setAltPhone(e.target.value)}
               onFocus={() => setFocusedField("altPhone")}
               onBlur={() => setFocusedField(null)}
-              placeholder="Alternate phone number (Optional)"
               className="w-full border border-gray-300 rounded-md px-3 py-3.5 text-sm focus:border-flip-blue focus:outline-none transition-all duration-200"
             />
             <label
@@ -320,7 +317,6 @@ export const AddEditAddress = () => {
               }}
               onFocus={() => setFocusedField("pincode")}
               onBlur={() => setFocusedField(null)}
-              placeholder="Pincode (Required)*"
               className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
                 errors.pincode ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
               }`}
@@ -360,7 +356,6 @@ export const AddEditAddress = () => {
               id="state"
               value={state}
               onClick={() => setShowStateModal(true)}
-              placeholder="State (Required)*"
               readOnly
               className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 bg-white cursor-pointer ${
                 errors.state ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
@@ -388,7 +383,6 @@ export const AddEditAddress = () => {
               }}
               onFocus={() => setFocusedField("city")}
               onBlur={() => setFocusedField(null)}
-              placeholder="City (Required)*"
               className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
                 errors.city ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
               }`}
@@ -417,7 +411,6 @@ export const AddEditAddress = () => {
             }}
             onFocus={() => setFocusedField("house")}
             onBlur={() => setFocusedField(null)}
-            placeholder="House No., Building Name (Required)*"
             className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
               errors.house ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
             }`}
@@ -445,7 +438,6 @@ export const AddEditAddress = () => {
             }}
             onFocus={() => setFocusedField("road")}
             onBlur={() => setFocusedField(null)}
-            placeholder="Road name, Area, Colony (Required)*"
             className={`w-full border rounded-md px-3 py-3.5 text-sm focus:outline-none transition-all duration-200 ${
               errors.road ? "border-red-500" : "border-gray-300 focus:border-flip-blue"
             }`}
@@ -481,7 +473,6 @@ export const AddEditAddress = () => {
               onChange={(e) => setLandmark(e.target.value)}
               onFocus={() => setFocusedField("landmark")}
               onBlur={() => setFocusedField(null)}
-              placeholder="Nearby Famous Shop/Mall/Landmark (Optional)"
               className="w-full border border-gray-300 rounded-md px-3 py-3.5 text-sm focus:border-flip-blue focus:outline-none transition-all duration-200"
             />
             <label
