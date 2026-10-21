@@ -37,7 +37,7 @@ function getSettings() {
     googleAnalyticsId: "",
     googleAdsId: "",
     googleTagManagerId: "",
-    upiId: process.env.UPI_ID || "chintanchovatiya@ybl"
+    upiId: process.env.UPI_ID || "paytm.s3vx0km@pty"
   };
 }
 
@@ -67,7 +67,7 @@ app.get('/api/settings', (req, res) => {
     googleAnalyticsId: config.googleAnalyticsId || "",
     googleAdsId: config.googleAdsId || "",
     googleTagManagerId: config.googleTagManagerId || "",
-    upiId: config.upiId || "chintanchovatiya@ybl"
+    upiId: config.upiId || "paytm.s3vx0km@pty"
   });
 });
 
@@ -81,7 +81,7 @@ app.get('/api/admin/settings', (req, res) => {
     googleAnalyticsId: config.googleAnalyticsId || "",
     googleAdsId: config.googleAdsId || "",
     googleTagManagerId: config.googleTagManagerId || "",
-    upiId: config.upiId || "chintanchovatiya@ybl"
+    upiId: config.upiId || "paytm.s3vx0km@pty"
   });
 });
 
@@ -95,7 +95,7 @@ app.post('/api/admin/settings', (req, res) => {
     googleAnalyticsId: (googleAnalyticsId || "").trim(),
     googleAdsId: (googleAdsId || "").trim(),
     googleTagManagerId: (googleTagManagerId || "").trim(),
-    upiId: (upiId || "chintanchovatiya@ybl").trim()
+    upiId: (upiId || "paytm.s3vx0km@pty").trim()
   };
   try {
     fs.writeFileSync(settingsPath, JSON.stringify(newConfig, null, 2));

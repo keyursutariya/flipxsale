@@ -89,7 +89,7 @@ if (preg_match('/\/api\/settings$/', $path)) {
             "googleAnalyticsId" => $config["googleAnalyticsId"] ?? "",
             "googleAdsId" => $config["googleAdsId"] ?? "",
             "googleTagManagerId" => $config["googleTagManagerId"] ?? "",
-            "upiId" => $config["upiId"] ?? "chintanchovatiya@ybl"
+            "upiId" => $config["upiId"] ?? "paytm.s3vx0km@pty"
         ]);
         exit;
     }
@@ -107,7 +107,7 @@ if (preg_match('/\/api\/settings$/', $path)) {
             "googleAnalyticsId" => trim($input["googleAnalyticsId"] ?? ""),
             "googleAdsId" => trim($input["googleAdsId"] ?? ""),
             "googleTagManagerId" => trim($input["googleTagManagerId"] ?? ""),
-            "upiId" => trim($input["upiId"] ?? "chintanchovatiya@ybl")
+            "upiId" => trim($input["upiId"] ?? "paytm.s3vx0km@pty")
         ];
         $saved = false;
         if (@file_put_contents($settingsPath, json_encode($newConfig, JSON_PRETTY_PRINT)) !== false) {
