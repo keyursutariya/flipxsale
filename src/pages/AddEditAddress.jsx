@@ -335,15 +335,17 @@ export const AddEditAddress = () => {
             type="button"
             onClick={handleUseLocation}
             disabled={loadingLocation}
-            className="px-3 py-2 text-xs bg-flip-blue text-white rounded-md flex items-center gap-1 border-none cursor-pointer hover:bg-blue-600 disabled:opacity-75 transition-colors"
+            className="px-3 py-2 text-xs text-white rounded-md flex items-center justify-center gap-1.5 border-none cursor-pointer hover:bg-blue-600 disabled:opacity-75 transition-colors whitespace-nowrap shadow-sm font-medium"
+            style={{ backgroundColor: "#2874f0", color: "#ffffff" }}
           >
             <img
               src="//img1a.flixcart.com/www/linchpin/checkout/prod/mylocationAB-ee92a46c.svg"
               width="16"
               height="16"
               alt="Location icon"
+              className="inline-block"
             />
-            {loadingLocation ? "Locating..." : "Use my location"}
+            <span>{loadingLocation ? "Locating..." : "Use my location"}</span>
           </button>
         </div>
         {errors.pincode && <p className="text-red-500 text-xs mt-0.5">{errors.pincode}</p>}

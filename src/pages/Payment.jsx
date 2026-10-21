@@ -81,7 +81,7 @@ export const Payment = () => {
 
     switch (selectedUpi) {
       case "gpay":
-        redirectUrl = `tez://upi/pay?pa=${upiId}&pn=Online%20Store&tn=Order_Id_${orderNumber}&am=${amt}&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=${encodeURIComponent(siteName)}`;
+        redirectUrl = `tez://upi/pay?pa=${upiId}&pn=Paytm&am=${amt}&cu=INR&tn=${encodeURIComponent("Verified Paytm Merchant")}`;
         break;
       case "phonepe":
         if (os === "android") {

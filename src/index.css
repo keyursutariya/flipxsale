@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-flip-blue: #2874f0;
+  --color-flip-bg: #f1f3f6;
+  --color-flip-text: #212121;
+  --color-flip-purple: #e7d9ff;
+}
+
+.bg-flip-blue {
+  background-color: #2874f0 !important;
+}
+
+.text-flip-blue {
+  color: #2874f0 !important;
+}
+
+.border-flip-blue {
+  border-color: #2874f0 !important;
+}
+
 /* Custom Slider and Layout Styles */
 * {
   user-select: none;
