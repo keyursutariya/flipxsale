@@ -14,7 +14,7 @@ export const Payment = () => {
   const { cart, setLoadingOverlay } = useContext(AppContext);
   const os = detectOS();
 
-  const [upiId, setUpiId] = useState("paytm.s3vx0km@pty");
+  const [upiId, setUpiId] = useState("paytm.s3wd4g4@pty");
   const [selectedUpi, setSelectedUpi] = useState("phonepe");
   const [selectedUPIlink, setSelectedUPIlink] = useState("");
 
