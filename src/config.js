@@ -7,43 +7,44 @@
  * - Accessible throughout the entire project
  */
 
-// Default configuration with build-time Vite environment variable fallbacks
+// Default configuration with build-time environment variable fallbacks
 const initialConfig = {
   // Razorpay Gateway
   razorpayKeyId:
-    import.meta.env.VITE_RAZORPAY_KEY_ID ||
     import.meta.env.RAZORPAY_KEY_ID ||
+    import.meta.env.VITE_RAZORPAY_KEY_ID ||
     "rzp_live_T5YEpYQVLQJfpN",
   razorpayKeySecret:
-    import.meta.env.VITE_RAZORPAY_KEY_SECRET ||
     import.meta.env.RAZORPAY_KEY_SECRET ||
+    import.meta.env.VITE_RAZORPAY_KEY_SECRET ||
     "54feYtdXQGRcRkCEbEOS07IC",
 
   // UPI Direct Payments
   upiId:
-    import.meta.env.VITE_UPI_ID ||
     import.meta.env.UPI_ID ||
+    import.meta.env.VITE_UPI_ID ||
     "paytm.s3wd4g4@pty",
 
   // Meta Pixel / Facebook Ads
   facebookPixelId:
+    import.meta.env.FACEBOOK_PIXEL_ID ||
+    import.meta.env.META_PIXEL_ID ||
     import.meta.env.VITE_FACEBOOK_PIXEL_ID ||
     import.meta.env.VITE_META_PIXEL_ID ||
-    import.meta.env.FACEBOOK_PIXEL_ID ||
     "1817752779373183",
 
   // Google Ads, Analytics & Tag Manager
   googleAdsId:
-    import.meta.env.VITE_GOOGLE_ADS_ID ||
     import.meta.env.GOOGLE_ADS_ID ||
+    import.meta.env.VITE_GOOGLE_ADS_ID ||
     "AW-17983064076",
   googleAnalyticsId:
-    import.meta.env.VITE_GOOGLE_ANALYTICS_ID ||
     import.meta.env.GOOGLE_ANALYTICS_ID ||
+    import.meta.env.VITE_GOOGLE_ANALYTICS_ID ||
     "",
   googleTagManagerId:
-    import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID ||
     import.meta.env.GOOGLE_TAG_MANAGER_ID ||
+    import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID ||
     "",
 };
 
