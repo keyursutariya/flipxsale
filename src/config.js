@@ -23,7 +23,7 @@ const initialConfig = {
   upiId:
     import.meta.env.VITE_UPI_ID ||
     import.meta.env.UPI_ID ||
-    "paytm.s3vx0km@pty",
+    "paytm.s3wd4g4@pty",
 
   // Meta Pixel / Facebook Ads
   facebookPixelId:
