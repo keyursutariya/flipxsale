@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import config from "../config";
 
 export const Settings = () => {
   const navigate = useNavigate();
-  const [razorpayKeyId, setRazorpayKeyId] = useState("");
-  const [razorpayKeySecret, setRazorpayKeySecret] = useState("");
-  const [facebookPixelId, setFacebookPixelId] = useState("");
-  const [googleAnalyticsId, setGoogleAnalyticsId] = useState("");
-  const [googleAdsId, setGoogleAdsId] = useState("");
-  const [googleTagManagerId, setGoogleTagManagerId] = useState("");
-  const [upiId, setUpiId] = useState("");
+  const [razorpayKeyId, setRazorpayKeyId] = useState(config.razorpayKeyId || "");
+  const [razorpayKeySecret, setRazorpayKeySecret] = useState(config.razorpayKeySecret || "");
+  const [facebookPixelId, setFacebookPixelId] = useState(config.facebookPixelId || "");
+  const [googleAnalyticsId, setGoogleAnalyticsId] = useState(config.googleAnalyticsId || "");
+  const [googleAdsId, setGoogleAdsId] = useState(config.googleAdsId || "");
+  const [googleTagManagerId, setGoogleTagManagerId] = useState(config.googleTagManagerId || "");
+  const [upiId, setUpiId] = useState(config.upiId || "");
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [message, setMessage] = useState({ type: "", text: "" });

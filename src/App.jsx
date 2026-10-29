@@ -21,6 +21,7 @@ import { PaymentVerify } from "./pages/PaymentVerify";
 import { OrderSuccess } from "./pages/OrderSuccess";
 import { InfoPage } from "./pages/InfoPage";
 import { Settings } from "./pages/Settings";
+import { loadConfig } from "./config";
 
 // App layout wrapper to handle location-based rendering
 const AppContent = () => {
@@ -29,15 +30,7 @@ const AppContent = () => {
 
   // Dynamic script injection for Analytics and Facebook Pixel
   useEffect(() => {
-    fetch("/settings.json")
-      .then((res) => {
-        if (!res.ok) {
-          // Fallback to cPanel API if static settings.json is not present
-          return fetch("/api/settings").then((r) => r.json());
-        }
-        return res.json();
-      })
-      .then((data) => {
+    loadConfig().then((data) => {
         // 1. Google Analytics & Ads Setup
         const gaIdRaw = data.googleAnalyticsId || "";
         const adsIdRaw = data.googleAdsId || "";
@@ -101,14 +94,14 @@ const AppContent = () => {
 
         // 2. Facebook Pixel Setup
         if (data.facebookPixelId) {
-          const fbRaw = data.facebookPixelId;
-          const fbMatch = fbRaw.match(/(\d{15,16})/);
+          const fbRaw = String(data.facebookPixelId);
+          const fbMatch = fbRaw.match(/(\d{15,18})/);
           const fbId = fbMatch ? fbMatch[0] : fbRaw.trim();
 
-          if (fbId && !document.getElementById("facebook-pixel-script")) {
-            const inlineScript = document.createElement("script");
-            inlineScript.id = "facebook-pixel-script";
-            inlineScript.innerHTML = `
+          if (fbId && window._currentFbPixelId !== fbId) {
+            window._currentFbPixelId = fbId;
+
+            if (!window.fbq) {
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -117,11 +110,11 @@ const AppContent = () => {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${fbId}');
-              fbq('track', 'PageView');
-            `;
-            document.head.appendChild(inlineScript);
-            console.log(`[Analytics] Facebook Pixel (${fbId}) initialized.`);
+            }
+
+            window.fbq('init', fbId);
+            window.fbq('track', 'PageView');
+            console.log(`[Analytics] Facebook Pixel (${fbId}) initialized from settings.`);
           }
         }
       })

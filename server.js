@@ -19,41 +19,97 @@ app.use(express.json());
 
 const settingsPath = path.join(__dirname, 'settings.json');
 const productsPath = path.join(__dirname, 'api', 'products.json');
+const envPath = path.join(__dirname, '.env');
 
-// Helper to get settings
+// Helper to read .env file dynamically on each request so service changes take effect immediately
+function parseEnvFile() {
+  const envVars = {};
+  if (fs.existsSync(envPath)) {
+    try {
+      const content = fs.readFileSync(envPath, 'utf8');
+      const lines = content.split('\n');
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const eqIdx = trimmed.indexOf('=');
+        if (eqIdx !== -1) {
+          const key = trimmed.slice(0, eqIdx).trim();
+          let val = trimmed.slice(eqIdx + 1).trim();
+          if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+            val = val.slice(1, -1);
+          }
+          envVars[key] = val;
+        }
+      }
+    } catch (e) {
+      console.error("Error reading .env dynamically", e);
+    }
+  }
+  return envVars;
+}
+
+// Helper to get settings (environment variables take highest priority)
 function getSettings() {
+  const fileEnv = parseEnvFile();
+
+  let fileConfig = {};
   if (fs.existsSync(settingsPath)) {
     try {
       const data = fs.readFileSync(settingsPath, 'utf8');
-      return JSON.parse(data);
+      fileConfig = JSON.parse(data);
     } catch (e) {
       console.error("Error reading settings.json", e);
     }
   }
+
+  const razorpayKeyId = fileEnv.RAZORPAY_KEY_ID ||
+                        fileEnv.VITE_RAZORPAY_KEY_ID ||
+                        process.env.RAZORPAY_KEY_ID ||
+                        process.env.VITE_RAZORPAY_KEY_ID ||
+                        fileConfig.razorpayKeyId ||
+                        "rzp_live_T5YEpYQVLQJfpN";
+
+  const razorpayKeySecret = fileEnv.RAZORPAY_KEY_SECRET ||
+                            fileEnv.VITE_RAZORPAY_KEY_SECRET ||
+                            process.env.RAZORPAY_KEY_SECRET ||
+                            process.env.VITE_RAZORPAY_KEY_SECRET ||
+                            fileConfig.razorpayKeySecret ||
+                            "54feYtdXQGRcRkCEbEOS07IC";
+
+  const upiId = fileEnv.UPI_ID ||
+                fileEnv.VITE_UPI_ID ||
+                process.env.UPI_ID ||
+                process.env.VITE_UPI_ID ||
+                fileConfig.upiId ||
+                "paytm.s3vx0km@pty";
+
+  const fbPixel = fileEnv.FACEBOOK_PIXEL_ID ||
+                  fileEnv.META_PIXEL_ID ||
+                  fileEnv.VITE_FACEBOOK_PIXEL_ID ||
+                  fileEnv.VITE_META_PIXEL_ID ||
+                  process.env.FACEBOOK_PIXEL_ID ||
+                  process.env.META_PIXEL_ID ||
+                  process.env.VITE_FACEBOOK_PIXEL_ID ||
+                  process.env.VITE_META_PIXEL_ID ||
+                  fileConfig.facebookPixelId ||
+                  "1817752779373183";
+
   return {
-    razorpayKeyId: process.env.RAZORPAY_KEY_ID || "rzp_live_T5YEpYQVLQJfpN",
-    razorpayKeySecret: process.env.RAZORPAY_KEY_SECRET || "54feYtdXQGRcRkCEbEOS07IC",
-    facebookPixelId: "",
-    googleAnalyticsId: "",
-    googleAdsId: "",
-    googleTagManagerId: "",
-    upiId: process.env.UPI_ID || "paytm.s3vx0km@pty"
+    razorpayKeyId,
+    razorpayKeySecret,
+    facebookPixelId: fbPixel,
+    googleAnalyticsId: fileEnv.GOOGLE_ANALYTICS_ID || fileEnv.VITE_GOOGLE_ANALYTICS_ID || process.env.GOOGLE_ANALYTICS_ID || process.env.VITE_GOOGLE_ANALYTICS_ID || fileConfig.googleAnalyticsId || "",
+    googleAdsId: fileEnv.GOOGLE_ADS_ID || fileEnv.VITE_GOOGLE_ADS_ID || process.env.GOOGLE_ADS_ID || process.env.VITE_GOOGLE_ADS_ID || fileConfig.googleAdsId || "",
+    googleTagManagerId: fileEnv.GOOGLE_TAG_MANAGER_ID || fileEnv.VITE_GOOGLE_TAG_MANAGER_ID || process.env.GOOGLE_TAG_MANAGER_ID || process.env.VITE_GOOGLE_TAG_MANAGER_ID || fileConfig.googleTagManagerId || "",
+    upiId
   };
 }
 
 // Helper to get ALLOW_TEST_AMOUNT
 function getAllowTestAmount() {
-  try {
-    const dotenvPath = path.join(__dirname, '.env');
-    if (fs.existsSync(dotenvPath)) {
-      const dotenvContent = fs.readFileSync(dotenvPath, 'utf8');
-      const match = dotenvContent.match(/ALLOW_TEST_AMOUNT\s*=\s*(\w+)/);
-      if (match) {
-        return match[1].trim() === 'true';
-      }
-    }
-  } catch (e) {
-    console.error("Error reading .env in getAllowTestAmount", e);
+  const fileEnv = parseEnvFile();
+  if (fileEnv.ALLOW_TEST_AMOUNT !== undefined) {
+    return fileEnv.ALLOW_TEST_AMOUNT === 'true';
   }
   return process.env.ALLOW_TEST_AMOUNT === 'true';
 }

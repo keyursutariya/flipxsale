@@ -2,8 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import config from './config'
 
-// Meta Pixel
+// Meta Pixel Base Loader
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -13,8 +14,12 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
-window.fbq('init', '1511058947312930');
-window.fbq('track', 'PageView');
+// Initialize with build-time config if provided
+if (config.facebookPixelId) {
+  window._currentFbPixelId = config.facebookPixelId;
+  window.fbq('init', config.facebookPixelId);
+  window.fbq('track', 'PageView');
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

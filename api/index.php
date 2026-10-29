@@ -15,25 +15,8 @@ $envPath = __DIR__ . '/../.env';
 
 function getSettings() {
     global $settingsPath, $envPath;
-    if (file_exists($settingsPath)) {
-        $data = file_get_contents($settingsPath);
-        $json = json_decode($data, true);
-        if (json_last_error() === JSON_ERROR_NONE) {
-            return $json;
-        }
-    }
     
-    // Check inside api directory as fallback
-    $localSettingsPath = __DIR__ . '/settings.json';
-    if (file_exists($localSettingsPath)) {
-        $data = file_get_contents($localSettingsPath);
-        $json = json_decode($data, true);
-        if (json_last_error() === JSON_ERROR_NONE) {
-            return $json;
-        }
-    }
-    
-    // Parse .env as fallback
+    // 1. Parse .env first
     $env = [];
     if (file_exists($envPath)) {
         $lines = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -42,18 +25,72 @@ function getSettings() {
             if (empty($line) || strpos($line, '#') === 0) continue;
             if (strpos($line, '=') !== false) {
                 list($name, $value) = explode('=', $line, 2);
-                $env[trim($name)] = trim($value);
+                $val = trim($value);
+                if ((substr($val, 0, 1) === '"' && substr($val, -1) === '"') || (substr($val, 0, 1) === "'" && substr($val, -1) === "'")) {
+                    $val = substr($val, 1, -1);
+                }
+                $env[trim($name)] = $val;
             }
         }
     }
-    
+
+    // 2. Read settings.json
+    $json = [];
+    if (file_exists($settingsPath)) {
+        $data = file_get_contents($settingsPath);
+        $decoded = json_decode($data, true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            $json = $decoded;
+        }
+    } else {
+        $localSettingsPath = __DIR__ . '/settings.json';
+        if (file_exists($localSettingsPath)) {
+            $data = file_get_contents($localSettingsPath);
+            $decoded = json_decode($data, true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $json = $decoded;
+            }
+        }
+    }
+
+    $fbPixelId = $env["FACEBOOK_PIXEL_ID"]
+        ?? $env["META_PIXEL_ID"]
+        ?? $env["VITE_FACEBOOK_PIXEL_ID"]
+        ?? $env["VITE_META_PIXEL_ID"]
+        ?? $_ENV["FACEBOOK_PIXEL_ID"]
+        ?? getenv("FACEBOOK_PIXEL_ID")
+        ?? $json["facebookPixelId"]
+        ?? "1817752779373183";
+
+    $razorpayKeyId = $env["RAZORPAY_KEY_ID"]
+        ?? $env["VITE_RAZORPAY_KEY_ID"]
+        ?? getenv("RAZORPAY_KEY_ID")
+        ?? getenv("VITE_RAZORPAY_KEY_ID")
+        ?? $json["razorpayKeyId"]
+        ?? "rzp_live_T5YEpYQVLQJfpN";
+
+    $razorpayKeySecret = $env["RAZORPAY_KEY_SECRET"]
+        ?? $env["VITE_RAZORPAY_KEY_SECRET"]
+        ?? getenv("RAZORPAY_KEY_SECRET")
+        ?? getenv("VITE_RAZORPAY_KEY_SECRET")
+        ?? $json["razorpayKeySecret"]
+        ?? "54feYtdXQGRcRkCEbEOS07IC";
+
+    $upiId = $env["UPI_ID"]
+        ?? $env["VITE_UPI_ID"]
+        ?? getenv("UPI_ID")
+        ?? getenv("VITE_UPI_ID")
+        ?? $json["upiId"]
+        ?? "paytm.s3vx0km@pty";
+
     return [
-        "razorpayKeyId" => $env["RAZORPAY_KEY_ID"] ?? "rzp_live_T5YEpYQVLQJfpN",
-        "razorpayKeySecret" => $env["RAZORPAY_KEY_SECRET"] ?? "54feYtdXQGRcRkCEbEOS07IC",
-        "facebookPixelId" => "",
-        "googleAnalyticsId" => "",
-        "googleAdsId" => "",
-        "googleTagManagerId" => ""
+        "razorpayKeyId" => $razorpayKeyId,
+        "razorpayKeySecret" => $razorpayKeySecret,
+        "facebookPixelId" => $fbPixelId,
+        "googleAnalyticsId" => $env["GOOGLE_ANALYTICS_ID"] ?? $env["VITE_GOOGLE_ANALYTICS_ID"] ?? getenv("GOOGLE_ANALYTICS_ID") ?? $json["googleAnalyticsId"] ?? "",
+        "googleAdsId" => $env["GOOGLE_ADS_ID"] ?? $env["VITE_GOOGLE_ADS_ID"] ?? getenv("GOOGLE_ADS_ID") ?? $json["googleAdsId"] ?? "",
+        "googleTagManagerId" => $env["GOOGLE_TAG_MANAGER_ID"] ?? $env["VITE_GOOGLE_TAG_MANAGER_ID"] ?? getenv("GOOGLE_TAG_MANAGER_ID") ?? $json["googleTagManagerId"] ?? "",
+        "upiId" => $upiId
     ];
 }
 

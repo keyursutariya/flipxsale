@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
+import config, { loadConfig } from "../config";
 
 const detectOS = () => {
   const ua = navigator.userAgent.toLowerCase();
@@ -14,22 +15,15 @@ export const Payment = () => {
   const { cart, setLoadingOverlay } = useContext(AppContext);
   const os = detectOS();
 
-  const [upiId, setUpiId] = useState("paytm.s3vx0km@pty");
+  const [upiId, setUpiId] = useState(config.upiId || "paytm.s3vx0km@pty");
   const [selectedUpi, setSelectedUpi] = useState("phonepe");
   const [selectedUPIlink, setSelectedUPIlink] = useState("");
 
-  // Fetch settings to get dynamic UPI ID
+  // Fetch settings to ensure dynamic UPI ID is updated from service .env
   useEffect(() => {
-    fetch("/settings.json")
-      .then((res) => {
-        if (!res.ok) {
-          // Fallback to cPanel API if static settings.json is not present
-          return fetch("/api/settings").then((r) => r.json());
-        }
-        return res.json();
-      })
+    loadConfig()
       .then((data) => {
-        if (data && data.upiId !== undefined) {
+        if (data && data.upiId) {
           setUpiId(data.upiId);
         }
       })
