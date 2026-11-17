@@ -81,7 +81,7 @@ function getSettings() {
         ?? getenv("UPI_ID")
         ?? getenv("VITE_UPI_ID")
         ?? $json["upiId"]
-        ?? "paytm.s3vx0km@pty";
+        ?? "paytm.s27xjuv@pty";
 
     return [
         "razorpayKeyId" => $razorpayKeyId,
