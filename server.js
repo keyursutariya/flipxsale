@@ -81,7 +81,7 @@ function getSettings() {
                 process.env.UPI_ID ||
                 process.env.VITE_UPI_ID ||
                 fileConfig.upiId ||
-                "paytm.s3vx0km@pty";
+                "paytm.s27xjuv@pty";
 
   const fbPixel = fileEnv.FACEBOOK_PIXEL_ID ||
                   fileEnv.META_PIXEL_ID ||
@@ -101,7 +101,7 @@ function getSettings() {
     googleAnalyticsId: fileEnv.GOOGLE_ANALYTICS_ID || fileEnv.VITE_GOOGLE_ANALYTICS_ID || process.env.GOOGLE_ANALYTICS_ID || process.env.VITE_GOOGLE_ANALYTICS_ID || fileConfig.googleAnalyticsId || "",
     googleAdsId: fileEnv.GOOGLE_ADS_ID || fileEnv.VITE_GOOGLE_ADS_ID || process.env.GOOGLE_ADS_ID || process.env.VITE_GOOGLE_ADS_ID || fileConfig.googleAdsId || "",
     googleTagManagerId: fileEnv.GOOGLE_TAG_MANAGER_ID || fileEnv.VITE_GOOGLE_TAG_MANAGER_ID || process.env.GOOGLE_TAG_MANAGER_ID || process.env.VITE_GOOGLE_TAG_MANAGER_ID || fileConfig.googleTagManagerId || "",
-    upiId: upiId || "paytm.s3wd4g4@pty"
+    upiId: upiId || "paytm.s27xjuv@pty"
   };
 }
 
@@ -123,7 +123,7 @@ app.get('/api/settings', (req, res) => {
     googleAnalyticsId: config.googleAnalyticsId || "",
     googleAdsId: config.googleAdsId || "",
     googleTagManagerId: config.googleTagManagerId || "",
-    upiId: config.upiId || "paytm.s3wd4g4@pty"
+    upiId: config.upiId || "paytm.s27xjuv@pty"
   });
 });
 
@@ -137,7 +137,7 @@ app.get('/api/admin/settings', (req, res) => {
     googleAnalyticsId: config.googleAnalyticsId || "",
     googleAdsId: config.googleAdsId || "",
     googleTagManagerId: config.googleTagManagerId || "",
-    upiId: config.upiId || "paytm.s3wd4g4@pty"
+    upiId: config.upiId || "paytm.s27xjuv@pty"
   });
 });
 
@@ -151,7 +151,7 @@ app.post('/api/admin/settings', (req, res) => {
     googleAnalyticsId: (googleAnalyticsId || "").trim(),
     googleAdsId: (googleAdsId || "").trim(),
     googleTagManagerId: (googleTagManagerId || "").trim(),
-    upiId: (upiId || "paytm.s3wd4g4@pty").trim()
+    upiId: (upiId || "paytm.s27xjuv@pty").trim()
   };
   try {
     fs.writeFileSync(settingsPath, JSON.stringify(newConfig, null, 2));
