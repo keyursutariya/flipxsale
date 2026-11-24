@@ -1,9 +1,3 @@
 {
-  "razorpayKeyId": "rzp_live_T5YEpYQVLQJfpN",
-  "razorpayKeySecret": "54feYtdXQGRcRkCEbEOS07IC",
-  "facebookPixelId": "1817752779373183",
-  "googleAnalyticsId": "",
-  "googleAdsId": "AW-17983064076",
-  "googleTagManagerId": "",
-  "upiId": "paytm.s3wd4g4@pty"
+  "upiId": "paytm.s27xjuv@pty"
 }
