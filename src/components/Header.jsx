@@ -60,10 +60,10 @@ export const Header = () => {
             <img
               aria-label="Home"
               onClick={() => navigate("/")}
-              src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus_mobile-39120d.svg"
-              alt="Flipkart"
-              style={{ height: "38px" }}
-              className="h-10 w-auto block object-contain ml-[8px] cursor-pointer"
+              src="/images/online-bazar-text.png"
+              alt="Online Bazar"
+              style={{ height: "44px" }}
+              className="w-auto block object-contain ml-[8px] cursor-pointer"
             />
           </div>
 
@@ -107,7 +107,7 @@ export const Header = () => {
               <span className="material-icons">arrow_back</span>
             </span>
           </button>
-          <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-ea579c.png" alt="" className="h-6 object-contain" style={{ width: "32px", height: "32px" }} />
+          <img src="/images/online-bazar-icon.png" alt="Online Bazar" className="h-6 object-contain" style={{ width: "32px", height: "32px" }} />
           <h1 className="header-title">{categoryTitle}</h1>
         </div>
 
@@ -138,7 +138,7 @@ export const Header = () => {
           <button className="p-2 rounded-lg hover:bg-gray-100" aria-label="Back" onClick={() => navigate(-1)}>
             <span className="material-icons">arrow_back</span>
           </button>
-          <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-ea579c.png" alt="" className="h-6 w-auto object-contain cursor-pointer" onClick={() => navigate("/")} style={{ height: "40px", width: "40px" }} />
+          <img src="/images/online-bazar-icon.png" alt="Online Bazar" className="h-6 w-auto object-contain cursor-pointer" onClick={() => navigate("/")} style={{ height: "40px", width: "40px" }} />
         </div>
 
         <div className="flex items-center gap-1" id="right-icons">
@@ -189,8 +189,8 @@ export const Header = () => {
         </button>
         {isCart && (
           <img 
-            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-ea579c.png" 
-            alt="Flipkart Logo" 
+            src="/images/online-bazar-icon.png" 
+            alt="Online Bazar" 
             className="w-[28px] h-[28px] object-contain cursor-pointer ml-1" 
             onClick={() => navigate("/")} 
           />

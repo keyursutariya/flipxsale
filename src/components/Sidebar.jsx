@@ -53,11 +53,11 @@ export const Sidebar = () => {
               </div>
               <span className="font-medium text-sm">User</span>
             </div>
-            <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden">
+            <div className="w-6 h-6 rounded-full flex items-center justify-center overflow-hidden">
               <img
                 className="w-full h-full object-contain"
-                src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logo_lite-cbb357.png"
-                alt="Flipkart Plus Logo"
+                src="/images/online-bazar-icon.png"
+                alt="Online Bazar Logo"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ export const Sidebar = () => {
 
             <div className="flex items-center gap-3 mb-2 hover:bg-gray-50 rounded-lg px-2 py-1.5 cursor-pointer transition-colors duration-200">
               <i className="fa-light fa-compass text-gray-600"></i>
-              <span className="font-medium">More on Flipkart</span>
+              <span className="font-medium">More on Online Bazar</span>
             </div>
           </div>
 

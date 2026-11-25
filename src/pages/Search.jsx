@@ -78,12 +78,7 @@ export const Search = () => {
                     </div>
 
                     <div className="flex items-center gap-1 mb-1">
-                      <img
-                        className="h-[14px] w-[34px] object-contain"
-                        src="https://rukminim1.flixcart.com/www/76/32/promos/30/08/2023/59dc7885-72bf-4135-9099-025f074b0eb1.png?q=90"
-                        alt="Offers logo"
-                        loading="lazy"
-                      />
+                      <span style={{ display: "inline-flex", alignItems: "center", background: "linear-gradient(135deg,#2874f0,#0057d8)", color: "#fff", fontWeight: 800, fontSize: "9px", padding: "1px 5px", borderRadius: "3px", letterSpacing: "0.5px" }}>WOW!</span>
                       <span className="wow-price" style={{ fontSize: "12px", marginLeft: "2px" }}>₹{wowPrice}</span>
                       <span className="offer-text" style={{ fontSize: "10px", marginLeft: "2px" }}>with 2 offers</span>
                     </div>
@@ -96,11 +91,7 @@ export const Search = () => {
                         <i className="bi bi-star-fill"></i>
                         <i className="bi bi-star-half"></i>
                       </div>
-                      <img
-                        className="fassured-logo-small"
-                        src="/images/fa.png"
-                        alt="F-Assured"
-                      />
+                      
                     </div>
                   </div>
                 </div>
@@ -112,3 +103,4 @@ export const Search = () => {
     </main>
   );
 };
+

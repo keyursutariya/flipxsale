@@ -85,13 +85,13 @@ export const Payment = () => {
               initialAmount: Math.round(actualTotal * 100),
               note: {
                 type: "text",
-                message: "Paying Flipkart",
+                message: "Paying Online Bazar",
               },
               supportedInstruments: -1,
             },
             contact: {
               type: "EXTERNAL_MERCHANT",
-              name: "Flipkart",
+              name: "Online Bazar",
               vpa: upiId,
             },
           };
@@ -269,7 +269,7 @@ export const Payment = () => {
             <span>₹{cashbackAmount} Cashback on First Order!</span>
           </div>
           <p className="text-xs text-green-700 leading-relaxed font-medium">
-            Place your order on this Flipkart product and get{" "}
+            Place your order on this Online Bazar product and get{" "}
             <span className="font-bold text-green-800">₹{cashbackAmount}</span>{" "}
             cashback! Cashback will be credited to your original UPI payment
             method (QR/PhonePe/Paytm/Gpay) after your order is delivered to you.

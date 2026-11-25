@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="row g-2">
           {/* Column 1: Brand Info */}
           <div className="col-4 mb-3 mb-md-0">
-            <h5 className="font-bold text-sm mb-2 text-white">Bestindiansale</h5>
+            <h5 className="font-bold text-sm mb-2 text-white">Online Bazar</h5>
             <p className="text-gray-300 leading-relaxed" style={{ fontSize: "10.5px" }}>
               Shop the latest trends in fashion, electronics, and home goods. Experience fast delivery and secure payments with us.
             </p>
@@ -37,7 +37,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-1.5">
                 <i className="bi bi-envelope-fill text-white text-xs mt-0.5"></i>
-                <span className="break-all">contact@bestindiansale.info</span>
+                <span className="break-all">contact@onlinebazar.in</span>
               </li>
               <li className="flex items-center gap-1.5">
                 <i className="bi bi-smartphone text-white text-xs"></i>
@@ -52,9 +52,11 @@ export const Footer = () => {
         
         {/* Copyright */}
         <div className="text-center text-gray-400" style={{ fontSize: "11px" }}>
-          <p className="mb-0">© 2026 Bestindiansale. All rights reserved.</p>
+          <p className="mb-0">© 2026 Online Bazar. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 };
+
+

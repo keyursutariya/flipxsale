@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+﻿import React, { useContext, useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import productsData from "../../api/products.json";
 import { AppContext } from "../context/AppContext";
@@ -175,8 +175,8 @@ export const OrderSummary = () => {
                 </p>
                 <div className="mt-2 flex flex-col gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-bold text-gray-900">₹{Math.round(p.price).toLocaleString("en-IN")}</span>
-                    <span className="text-gray-400 line-through text-xs font-semibold">₹{Math.round(p.mrp).toLocaleString("en-IN")}</span>
+                    <span className="text-base font-bold text-gray-900">â‚¹{Math.round(p.price).toLocaleString("en-IN")}</span>
+                    <span className="text-gray-400 line-through text-xs font-semibold">â‚¹{Math.round(p.mrp).toLocaleString("en-IN")}</span>
                     <span className="text-green-600 font-bold text-xs">{p.discount} off</span>
                   </div>
 
@@ -198,7 +198,7 @@ export const OrderSummary = () => {
                         Qty:
                       </span>
                       <span className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-[#878787] text-[8px]">
-                        ▼
+                        â–¼
                       </span>
                     </div>
                     <button
@@ -241,8 +241,8 @@ export const OrderSummary = () => {
                         {p.name}
                       </p>
                       <div className="price-line flex items-baseline gap-1 mt-1">
-                        <span className="font-bold text-black text-xs">₹{Math.round(p.selling_price)}</span>
-                        <del className="text-[10px] text-gray-400">₹{Math.round(p.mrp)}</del>
+                        <span className="font-bold text-black text-xs">â‚¹{Math.round(p.selling_price)}</span>
+                        <del className="text-[10px] text-gray-400">â‚¹{Math.round(p.mrp)}</del>
                       </div>
                     </div>
                   </div>
@@ -289,32 +289,32 @@ export const OrderSummary = () => {
               <span className="flex items-center gap-1">
                 Price ({cart.totalCount} item{cart.totalCount === 1 ? "" : "s"})
               </span>
-              <span>₹{totalMrp.toLocaleString("en-IN")}</span>
+              <span>â‚¹{totalMrp.toLocaleString("en-IN")}</span>
             </div>
             <div className="flex justify-between text-xs text-green-600 font-semibold mb-2">
               <span>Discount</span>
-              <span>- ₹{totalDiscount.toLocaleString("en-IN")}</span>
+              <span>- â‚¹{totalDiscount.toLocaleString("en-IN")}</span>
             </div>
             <div className="flex justify-between text-xs text-gray-700 mb-2">
               <span>Platform Fee</span>
-              <span>₹0</span>
+              <span>â‚¹0</span>
             </div>
           </div>
 
           {/* Always visible */}
           <div className="flex justify-between font-bold text-sm text-gray-900 mt-2 border-t border-gray-200 pt-2">
             <span>Total Amount</span>
-            <span>₹{finalPayable.toLocaleString("en-IN")}</span>
+            <span>â‚¹{finalPayable.toLocaleString("en-IN")}</span>
           </div>
           <div className="bg-green-50 text-green-700 text-[11px] p-2.5 rounded-lg mt-2 font-medium">
-            You will save ₹{totalDiscount.toLocaleString("en-IN")} on this order
+            You will save â‚¹{totalDiscount.toLocaleString("en-IN")} on this order
           </div>
         </div>
       </section>
 
       {/* Terms Disclaimer */}
       <div className="px-4 py-4 text-[11px] text-gray-400 leading-normal mb-8">
-        By continuing with the order, you confirm that you are above 18 years of age, and you agree to the Flipkart’s{" "}
+        By continuing with the order, you confirm that you are above 18 years of age, and you agree to the Online Bazar's{" "}
         <span className="text-blue-600 font-semibold cursor-pointer hover:underline">Terms of Use</span> and{" "}
         <span className="text-blue-600 font-semibold cursor-pointer hover:underline">Privacy Policy</span>.
       </div>
@@ -322,9 +322,9 @@ export const OrderSummary = () => {
       {/* Bottom Continue Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 flex justify-between items-center max-w-[480px] mx-auto z-35 shadow-lg">
         <div className="flex flex-col">
-          <span className="text-xs text-gray-400 line-through">₹{totalMrp.toLocaleString("en-IN")}</span>
+          <span className="text-xs text-gray-400 line-through">â‚¹{totalMrp.toLocaleString("en-IN")}</span>
           <span className="text-[17px] font-bold text-[#111112] flex items-center gap-0.5">
-            <span>₹{finalPayable.toLocaleString("en-IN")}</span>
+            <span>â‚¹{finalPayable.toLocaleString("en-IN")}</span>
             <span className="material-icons text-gray-400 text-xs" style={{ fontSize: "14px" }}>info</span>
           </span>
         </div>
@@ -338,3 +338,4 @@ export const OrderSummary = () => {
     </main>
   );
 };
+

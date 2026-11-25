@@ -141,7 +141,7 @@ export const ProductDetail = () => {
   // Dynamic Document Title
   useEffect(() => {
     if (product) {
-      document.title = `${product.name} - - Flipkart`;
+      document.title = `${product.name} - - Online Bazar`;
     }
     return () => {
       document.title =
@@ -362,11 +362,7 @@ export const ProductDetail = () => {
           <span className="ratings-count">{randomRatingsCount}</span>
         </div>
 
-        <img
-          src="/images/plue-fassured.png"
-          alt="F-Assured"
-          className="fassured-logo"
-        />
+        
 
         <div className="price-container mt-3 d-flex align-items-center">
           <span className="final-price">₹{sellingPrice}</span>

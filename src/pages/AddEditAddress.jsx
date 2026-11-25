@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+﻿import React, { useContext, useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
@@ -339,7 +339,7 @@ export const AddEditAddress = () => {
             style={{ backgroundColor: "#2874f0", color: "#ffffff" }}
           >
             <img
-              src="//img1a.flixcart.com/www/linchpin/checkout/prod/mylocationAB-ee92a46c.svg"
+              src="/images/uparrow.png"
               width="16"
               height="16"
               alt="Location icon"
@@ -607,3 +607,4 @@ export const AddEditAddress = () => {
     </main>
   );
 };
+

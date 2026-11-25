@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 export const InfoPage = () => {
@@ -36,9 +36,9 @@ export const InfoPage = () => {
       case "about-us":
         return (
           <section className="about-content p-6 leading-relaxed text-gray-700 bg-white">
-            <h1 className="text-xl font-bold text-center text-gray-900 mb-4 uppercase">About Bestindiansale</h1>
+            <h1 className="text-xl font-bold text-center text-gray-900 mb-4 uppercase">About Online Bazar</h1>
             <p className="mb-4 text-sm">
-              Welcome to Bestindiansale, your premier destination for online shopping! We are dedicated to providing you
+              Welcome to Online Bazar, your premier destination for online shopping! We are dedicated to providing you
               with the best selection of fashion, electronics, home goods, and much more, all at competitive prices and
               with exceptional service.
             </p>
@@ -84,14 +84,14 @@ export const InfoPage = () => {
               from the comfort of their homes.
             </p>
 
-            <p className="text-sm font-medium mt-6">Thank you for choosing Bestindiansale. We look forward to serving you!</p>
+            <p className="text-sm font-medium mt-6">Thank you for choosing Online Bazar. We look forward to serving you!</p>
           </section>
         );
 
       case "contact-us":
         return (
           <section className="contact-content p-6 bg-white text-gray-700">
-            <h1 className="text-xl font-bold text-center text-gray-900 mb-4 uppercase">Contact Bestindiansale</h1>
+            <h1 className="text-xl font-bold text-center text-gray-900 mb-4 uppercase">Contact Online Bazar</h1>
             <p className="text-center text-xs text-gray-500 mb-6">
               We'd love to hear from you! Please reach out to us with any questions, feedback, or support inquiries.
             </p>
@@ -109,8 +109,8 @@ export const InfoPage = () => {
                   <i className="bi bi-envelope-fill text-red-500"></i>
                   <span>
                     <strong>Email:</strong>{" "}
-                    <a href="mailto:contact@bestindiansale.info" className="text-blue-600 font-medium hover:underline">
-                      contact@bestindiansale.info
+                    <a href="mailto:contact@Online Bazar.info" className="text-blue-600 font-medium hover:underline">
+                      contact@Online Bazar.info
                     </a>
                   </span>
                 </p>
@@ -198,7 +198,7 @@ export const InfoPage = () => {
             <p className="text-center text-[10px] text-gray-400 mb-6"><em>Last updated: October 3, 2025</em></p>
 
             <p className="text-sm mb-4">
-              At Bestindiansale, we are committed to delivering your products to you in a timely and efficient manner. This Shipping Policy outlines our shipping practices, delivery times, and costs.
+              At Online Bazar, we are committed to delivering your products to you in a timely and efficient manner. This Shipping Policy outlines our shipping practices, delivery times, and costs.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">1. Shipping Zones</h2>
@@ -230,19 +230,19 @@ export const InfoPage = () => {
                 </thead>
                 <tbody>
                   <tr className="border-b border-gray-200">
-                    <td className="p-2 border-r border-gray-200">Below ₹500</td>
-                    <td className="p-2 border-r border-gray-200">₹50</td>
-                    <td className="p-2">₹100</td>
+                    <td className="p-2 border-r border-gray-200">Below â‚¹500</td>
+                    <td className="p-2 border-r border-gray-200">â‚¹50</td>
+                    <td className="p-2">â‚¹100</td>
                   </tr>
                   <tr className="border-b border-gray-200">
-                    <td className="p-2 border-r border-gray-200">₹500 - ₹1500</td>
-                    <td className="p-2 border-r border-gray-200">₹30</td>
-                    <td className="p-2">₹80</td>
+                    <td className="p-2 border-r border-gray-200">â‚¹500 - â‚¹1500</td>
+                    <td className="p-2 border-r border-gray-200">â‚¹30</td>
+                    <td className="p-2">â‚¹80</td>
                   </tr>
                   <tr>
-                    <td className="p-2 border-r border-gray-200">Above ₹1500</td>
+                    <td className="p-2 border-r border-gray-200">Above â‚¹1500</td>
                     <td className="p-2 border-r border-gray-200 text-green-600 font-bold">Free Shipping</td>
-                    <td className="p-2">₹50</td>
+                    <td className="p-2">â‚¹50</td>
                   </tr>
                 </tbody>
               </table>
@@ -266,7 +266,7 @@ export const InfoPage = () => {
             <p className="text-center text-[10px] text-gray-400 mb-6"><em>Last updated: October 3, 2025</em></p>
 
             <p className="text-sm mb-4">
-              At Bestindiansale, we want you to be completely satisfied with your purchase. If for any reason you are not, we offer a straightforward return and exchange policy. Please read the following terms carefully.
+              At Online Bazar, we want you to be completely satisfied with your purchase. If for any reason you are not, we offer a straightforward return and exchange policy. Please read the following terms carefully.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">1. Eligibility for Returns &amp; Exchanges</h2>
@@ -307,7 +307,7 @@ export const InfoPage = () => {
             <p className="text-center text-[10px] text-gray-400 mb-6"><em>Last updated: October 3, 2025</em></p>
 
             <p className="text-sm mb-4">
-              Bestindiansale respects your privacy and is committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website.
+              Online Bazar respects your privacy and is committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">1. Information We Collect</h2>
@@ -334,22 +334,22 @@ export const InfoPage = () => {
             <p className="text-center text-[10px] text-gray-400 mb-6"><em>Last updated: October 3, 2025</em></p>
 
             <p className="text-sm mb-4">
-              These terms and conditions outline the rules and regulations for the use of Bestindiansale's Website.
+              These terms and conditions outline the rules and regulations for the use of Online Bazar's Website.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">1. Acceptance of Terms</h2>
             <p className="text-sm mb-4">
-              By accessing this website we assume you accept these terms and conditions. Do not continue to use Bestindiansale if you do not agree to take all of the terms and conditions stated on this page.
+              By accessing this website we assume you accept these terms and conditions. Do not continue to use Online Bazar if you do not agree to take all of the terms and conditions stated on this page.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">2. Intellectual Property</h2>
             <p className="text-sm mb-4">
-              Unless otherwise stated, Bestindiansale and/or its licensors own the intellectual property rights for all material on Bestindiansale. All intellectual property rights are reserved.
+              Unless otherwise stated, Online Bazar and/or its licensors own the intellectual property rights for all material on Online Bazar. All intellectual property rights are reserved.
             </p>
 
             <h2 className="text-base font-bold text-gray-900 mt-5 mb-2 uppercase">3. Limitation of Liability</h2>
             <p className="text-sm mb-4">
-              In no event shall Bestindiansale, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this website.
+              In no event shall Online Bazar, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this website.
             </p>
           </section>
         );
@@ -377,3 +377,4 @@ export const InfoPage = () => {
     </main>
   );
 };
+
