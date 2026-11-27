@@ -234,12 +234,6 @@ export const Home = () => {
                     <span className="text-green-600 text-xs font-semibold">{discountPercent}% off</span>
                   </div>
 
-                  <div className="flex items-center gap-1 mb-1">
-                    <span style={{ display: "inline-flex", alignItems: "center", background: "linear-gradient(135deg,#2874f0,#0057d8)", color: "#fff", fontWeight: 800, fontSize: "9px", padding: "1px 5px", borderRadius: "3px", letterSpacing: "0.5px" }}>WOW!</span>
-                    <span className="wow-price" style={{ fontSize: "12px", marginLeft: "2px" }}>₹{wowPrice}</span>
-                    <span className="offer-text" style={{ fontSize: "10px", marginLeft: "2px" }}>with 2 offers</span>
-                  </div>
-
                   <div className="rating-line mt-1.5 justify-between">
                     <div className="rating-stars flex gap-[2px]">
                       <i className="bi bi-star-fill"></i>

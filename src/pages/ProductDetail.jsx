@@ -478,14 +478,6 @@ export const ProductDetail = () => {
                     </div>
                     <div className="compact-info-wrapper">
                       <p className="product-name">{p.name}</p>
-                      <div className="price-line">
-                        <span className="fw-bold">
-                          ₹{Math.round(p.selling_price)}
-                        </span>
-                        <del className="ms-2 text-muted small">
-                          ₹{Math.round(p.mrp)}
-                        </del>
-                      </div>
                     </div>
                   </div>
                   <button
@@ -529,14 +521,6 @@ export const ProductDetail = () => {
                     </div>
                     <div className="compact-info-wrapper">
                       <p className="product-name">{p.name}</p>
-                      <div className="price-line">
-                        <span className="fw-bold">
-                          ₹{Math.round(p.selling_price)}
-                        </span>
-                        <del className="ms-2 text-muted small">
-                          ₹{Math.round(p.mrp)}
-                        </del>
-                      </div>
                     </div>
                   </div>
                   <button

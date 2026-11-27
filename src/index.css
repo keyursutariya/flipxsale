@@ -61,15 +61,15 @@
   .product-card {
     font-size: 12px;
   }
-  
+
   .product-card .text-lg {
     font-size: 16px;
   }
-  
+
   .product-card .text-sm {
     font-size: 13px;
   }
-  
+
   .product-card .text-xs {
     font-size: 14px;
     font-weight: 400;
@@ -159,6 +159,7 @@
   from {
     left: -75%;
   }
+
   to {
     left: 125%;
   }
@@ -171,13 +172,16 @@
     padding: 10px;
     gap: 12px;
   }
+
   .deal-title {
     font-size: 16px;
   }
+
   .deal-timer {
     font-size: 14px;
     margin-left: 10%;
   }
+
   .sale-badge {
     font-size: 12px;
     padding: 6px 14px;
@@ -685,8 +689,13 @@ input:not(:placeholder-shown)::placeholder {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Size Selector Styles */
